@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calaculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="history active inactive ">
+            <div class="blur-layer" ></div>
+         <button class="close">X</button>
+             <ul class="history-list">
+          </ul>
+        </div>
+     
+        <select class ="dropdown" >
+        <option value="0" selected hidden > Options </option>
+        <option value="1" > History </option>
+        <option value="2" > Expand/Contract </option>
+ </select>
+
+        <input type="text" class="output" readonly>
+        <div class="functions">
+            <button class="btn"  id="clear">AC</button>
+            <button class="btn"  id="inverse">+/-</button>
+            <button class="btn"  id="percentage">%</button>
+            <button class="btn"  id="divide">÷</button>
+            <button class="btn"  id="seven">7</button>
+            <button class="btn"  id="eight">8</button>
+            <button class="btn"  id="nine">9</button>
+            <button class="btn" id="multiply">x</button>
+            <button class="btn" id="four">4</button>
+            <button class="btn" id="five">5</button>
+            <button class="btn" id="six">6</button>
+            <button class="btn" id="minus">-</button>
+            <button class="btn" id="one">1</button>
+            <button class="btn" id="two">2</button>
+            <button class="btn" id="three">3</button>
+            <button class="btn" id="add">+</button>
+            <button class="btn" id="zero">0</button>
+            <button class="btn" id="decimal">.</button>
+            <button class="btn" id="equals">=</button>
+
+          <div class="extra-functions inactive">
+            <button class="btn" id="sqrt">√</button>
+            <button class="btn" id="square">x²</button>
+            <button class="btn" id="cube">x³</button>
+            <button class="btn" id="power">x^y</button>
+            <button class="btn" id="factorial">n!</button>
+            <button class="btn" id="logarithm">log</button>
+            <button class="btn" id="exponential">e^x</button>
+            <button class="btn" id="pi">π</button>
+
+            <button class="btn" id="sin">sin</button>
+            <button class="btn" id="cos">cos</button>
+            <button class="btn" id="tan">tan</button>
+            <button class="btn" id="inv">Inv</button>
+            
+          </div>
+          </div>
+        </div>
+
+
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
