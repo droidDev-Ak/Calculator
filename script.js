@@ -5,17 +5,14 @@ const buttons = document.querySelectorAll(".btn");
 const output = document.querySelector(".output");
 let arr = [];
 let i = 0;
-let mobile = false;
-let historyy = false;
+
 
 console.log(window.innerWidth);
 
 if (window.innerWidth > 390 || window.innerWidth > 450) {
     document.querySelector(".mobile-functions").classList.add("inactive");
-    mobile = true;
-    console.log("1");
-
 }
+
 function history() {
     console.log("history");
     historyy = true;
@@ -27,17 +24,6 @@ function history() {
 
 
 
-document.body.addEventListener('touchstart', (e) => {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-    if (mobile && historyy) {
-        if (touchStartX < 100 || touchStartX > 250) {
-            document.querySelector(".history").classList.toggle("inactive");
-
-        }
-    }
-
-})
 
 document.querySelector("#equals").addEventListener("click", () => {
     arr.push(string + "=" + eval(string));
