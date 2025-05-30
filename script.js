@@ -109,7 +109,7 @@ dropdown.addEventListener("change",(e)=>{
 
 
 
- const first=document.querySelector('.functions');
+ const first=document.querySelector('.container');
 
         let touchStartX = 0;
         let touchStartY = 0;
@@ -120,6 +120,8 @@ dropdown.addEventListener("change",(e)=>{
         if(e.touches.length>1) return; // Ignore multi-touch
           touchStartX = e.touches[0].clientX;
             touchStartY = e.touches[0].clientY;
+            console.log("Touch started at: ", touchStartX, touchStartY);
+            
 
         })       
         first.addEventListener('touchend',(e)=>{
@@ -136,24 +138,6 @@ dropdown.addEventListener("change",(e)=>{
                     document.querySelector(".functions").classList.toggle("inactive");
                     document.querySelector(".mobile-functions").classList.toggle("inactive");
 
-    
-
-
-                   
-                } else {
-
-                    console.log("Swipe left");
-                    
-                }
-            } else {
-
-                if(delY > 0){
-                    console.log("Swipe down");
-                    
-                   
-                } else {
-                    console.log("Swipe up");
-                    
-                }
+    } 
             }
         })
