@@ -5,13 +5,14 @@ const buttons = document.querySelectorAll(".btn");
 const output = document.querySelector(".output");
 let arr = [];
 let i = 0;
+let mobile=false;
+let inverseMode = false;
 
-
-console.log(window.innerWidth);
-
-if (window.innerWidth > 390 || window.innerWidth > 450) {
+if (window.innerWidth > 390 && window.innerWidth <450) {
     document.querySelector(".mobile-functions").classList.add("inactive");
+    mobile=true;
 }
+if(mobile) document.querySelector(".inactive").classList.remove("inactive");
 
 function history() {
     console.log("history");
@@ -36,59 +37,160 @@ document.querySelector(".close").addEventListener("click", () => {
     document.querySelector('.dropdown').value = '0';
 })
 
+document.querySelector("#inv").addEventListener("click", () => {
+     inverseMode = !inverseMode;
+  const sinBtn = document.querySelector("#sin");
+  const cosBtn = document.querySelector("#cos");
+  const tanBtn = document.querySelector("#tan");
 
+  if (sinBtn.innerText === "sin") {
+    sinBtn.innerText = "sin⁻¹";
+    cosBtn.innerText = "cos⁻¹";
+    tanBtn.innerText = "tan⁻¹";
+  } else {
+    sinBtn.innerText = "sin";
+    cosBtn.innerText = "cos";
+    tanBtn.innerText = "tan";
+  }
+});
 buttons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-        let buttonText = e.target.innerHTML;
-        if (buttonText === "x") {
-            buttonText = "*";
+  button.addEventListener("click", (e) => {
+    let buttonText = e.target.innerHTML;
+
+    if (buttonText === "x") {
+      buttonText = "*";
+    } else if (buttonText === "÷") {
+      buttonText = "/";
+    }
+
+    console.log(buttonText);
+
+    if (buttonText === "=") {
+      try {
+        string = eval(string);
+        if (string != string) {
+          output.value = "Not defined";
+        } else {
+          output.value = string;
         }
-        else if (buttonText === "÷") {
-            buttonText = "/";
-        }
+      } catch (err) {
+        output.value = "Error";
+      }
+    }
 
+    else if (buttonText === "%") {
+      try {
+        string = eval(string) / 100;
+        output.value = string;
+      } catch {
+        output.value = "Error";
+      }
+    }
 
-        console.log(buttonText);
+    else if (buttonText === "+/-") {
+      if (string.startsWith("-")) {
+        string = string.slice(1);
+      } else {
+        string = "-" + string;
+      }
+      output.value = string;
+    }
 
-        if (buttonText === "=") {
-            string = eval(string);
-            if (string != string) {
+    else if (buttonText === "AC") {
+      string = "";
+      output.value = "";
+    }
 
-                output.value = "Not defined";
+    // 🔬 Extra Functions
+    else if (buttonText === "√") {
+      try {
+        string = Math.sqrt(eval(string));
+        output.value = string;
+      } catch {
+        output.value = "Error";
+      }
+    }
 
-            }
-            else {
+    else if (buttonText === "x²") {
+      try {
+        string = Math.pow(eval(string), 2);
+        output.value = string;
+      } catch {
+        output.value = "Error";
+      }
+    }
 
-                output.value = string;
-            }
-        }
-        else if (buttonText == "%") {
-            string = eval(string) / 100;
+    else if (buttonText === "x³") {
+      try {
+        string = Math.pow(eval(string), 3);
+        output.value = string;
+      } catch {
+        output.value = "Error";
+      }
+    }
 
-        }
-        else if (buttonText === "+/-") {
-            if (string.startsWith("-")) {
-                string = string.slice(1);
+    else if (buttonText === "e^x") {
+      try {
+        string = Math.exp(eval(string));
+        output.value = string;
+      } catch {
+        output.value = "Error";
+      }
+    }
 
-            }
-            else {
-                string = "-" + string;
-            }
+    else if (buttonText === "π") {
+      string += Math.PI.toFixed(6);  // Approx 3.141593
+      output.value = string;
+    }
 
-            output.value = string;
-        }
-        else {
-            if (buttonText === "AC") {
-                string = "";
-                output.value = string;
-            }
-            else {
+    else if (buttonText === "sin") {
+      try {
+        string = Math.sin(eval(string) * Math.PI / 180).toFixed(6);
+        output.value = string;
+      } catch {
+        output.value = "Error";
+      }
+    }
 
-                string += buttonText;
-                output.value = string;
-            }
-        }
-    });
+    else if (buttonText === "cos") {
+      try {
+        string = Math.cos(eval(string) * Math.PI / 180).toFixed(6);
+        output.value = string;
+      } catch {
+        output.value = "Error";
+      }
+    }
+
+    else if (buttonText === "tan") {
+      try {
+        string = Math.tan(eval(string) * Math.PI / 180).toFixed(6);
+        output.value = string;
+      } catch {
+        output.value = "Error";
+      }
+    }
+
+    else if (buttonText === "sin" || buttonText === "sin⁻¹") {
+  const val = parseFloat(output.value);
+  output.value = inverseMode ? Math.asin(val).toFixed(4) : Math.sin(val).toFixed(4);
+  string = output.value;
+}
+else if (buttonText === "cos" || buttonText === "cos⁻¹") {
+  const val = parseFloat(output.value);
+  output.value = inverseMode ? Math.acos(val).toFixed(4) : Math.cos(val).toFixed(4);
+  string = output.value;
+}
+else if (buttonText === "tan" || buttonText === "tan⁻¹") {
+  const val = parseFloat(output.value);
+  output.value = inverseMode ? Math.atan(val).toFixed(4) : Math.tan(val).toFixed(4);
+  string = output.value;
+}
+
+    else {
+      string += buttonText;
+      output.value = string;
+    }
+  });
 });
 
 
