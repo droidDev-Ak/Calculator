@@ -1,93 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calaculator</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calaculator</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <div class="container">
-        <div class="history active inactive ">
-            <div class="blur-layer" ></div>
-         <button class="close">X</button>
-             <ul class="history-list">
-          </ul>
-        </div>
-     
-        <select class ="dropdown" >
-        <option value="0" selected hidden > Options </option>
-        <option value="1" > History </option>
-        <option value="2" > Expand/Contract </option>
- </select>
- <button class="mobile-history historyy">History</button>
+  <div class="container">
+    <div class="history active inactive ">
+      <div class="blur-layer"></div>
+      <button class="close">X</button>
+      <ul class="history-list">
+      </ul>
+    </div>
 
-        <input type="text" class="output" readonly>
-        <div class="functions">
-          
-            <button class="btn"  id="clear">AC</button>
-            <button class="btn"  id="inverse">+/-</button>
-            <button class="btn"  id="percentage">%</button>
-            <button class="btn"  id="divide">÷</button>
-            <button class="btn second"  id="seven">7</button>
-            <button class="btn second"  id="eight">8</button>
-            <button class="btn second"  id="nine">9</button>
-            <button class="btn" id="multiply">x</button>
-            <button class="btn second" id="four">4</button>
-            <button class="btn second" id="five">5</button>
-            <button class="btn second" id="six">6</button>
-            <button class="btn" id="minus">-</button>
-            <button class="btn second" id="one">1</button>
-            <button class="btn second" id="two">2</button>
-            <button class="btn second" id="three">3</button>
-            <button class="btn" id="add">+</button>
-            <button class="btn" id="zero">0</button>
-            <button class="btn" id="decimal">.</button>
-            <button class="btn" id="equals">=</button>
+    <select class="dropdown">
+      <option value="0" selected hidden> Options </option>
+      <option value="1"> History </option>
+      <option value="2"> Expand/Contract </option>
+    </select>
+    <button class="mobile-history" onclick="history()">History</button>
 
-          <div class="extra-functions inactive">
-            <button class="btn extra" id="sqrt">√</button>
-            <button class="btn extra" id="square">x²</button>
-            <button class="btn extra" id="cube">x³</button>
-            
-            <button class="btn extra" id="exponential">e^x</button>
-            <button class="btn extra" id="pi">π</button>
+    <input type="text" class="output" readonly>
+    <div class="functions">
 
-            <button class="btn extra" id="sin">sin</button>
-            <button class="btn extra" id="cos">cos</button>
-            <button class="btn extra" id="tan">tan</button>
-            <button class="btn extra" id="inv">Inv</button>
-            
-          </div>
-</div>
-<div class="mobile-functions inactive">
-   <button class="btn"  id="clear">AC</button>
-            <button class="btn"  id="inverse">+/-</button>
-            <button class="btn"  id="percentage">%</button>
-            <button class="btn"  id="divide">÷</button>
-    <button class="btn extra" id="sqrt">√</button>
-            <button class="btn extra" >x²</button>
-            <button class="btn extra" >x³</button>
-            <button class="btn" id="multiply">x</button>
-            <button class="btn extra" >e^x</button>
-            <button class="btn extra" >π</button>
+      <button class="btn" id="clear">AC</button>
+      <button class="btn" id="inverse">+/-</button>
+      <button class="btn" id="percentage">%</button>
+      <button class="btn" id="divide">÷</button>
+      <button class="btn second" id="seven">7</button>
+      <button class="btn second" id="eight">8</button>
+      <button class="btn second" id="nine">9</button>
+      <button class="btn" id="multiply">x</button>
+      <button class="btn second" id="four">4</button>
+      <button class="btn second" id="five">5</button>
+      <button class="btn second" id="six">6</button>
+      <button class="btn" id="minus">-</button>
+      <button class="btn second" id="one">1</button>
+      <button class="btn second" id="two">2</button>
+      <button class="btn second" id="three">3</button>
+      <button class="btn" id="add">+</button>
+      <button class="btn" id="zero">0</button>
+      <button class="btn" id="decimal">.</button>
+      <button class="btn" id="equals">=</button>
 
-            <button class="btn extra" >sin</button>
-             <button class="btn" id="minus">-</button>
-            <button class="btn extra" >cos</button>
-            <button class="btn extra" >tan</button>
-            <button class="btn extra" >Inv</button>
-            <button class="btn" id="add">+</button>
-<button class="btn" id="zero">0</button>
-            <button class="btn" id="decimal">.</button>
-            <button class="btn" id="equals">=</button>
-</div>
-        </div>
+      <div class="extra-functions inactive">
+        <button class="btn extra" id="sqrt">√</button>
+        <button class="btn extra" id="square">x²</button>
+        <button class="btn extra" id="cube">x³</button>
+
+        <button class="btn extra" id="exponential">e^x</button>
+        <button class="btn extra" id="pi">π</button>
+
+        <button class="btn extra" id="sin">sin</button>
+        <button class="btn extra" id="cos">cos</button>
+        <button class="btn extra" id="tan">tan</button>
+        <button class="btn extra" id="inv">Inv</button>
+
+      </div>
+    </div>
+    <div class="mobile-functions inactive">
+      <button class="btn" id="clear">AC</button>
+      <button class="btn" id="inverse">+/-</button>
+      <button class="btn" id="percentage">%</button>
+      <button class="btn" id="divide">÷</button>
+      <button class="btn extra" id="sqrt">√</button>
+      <button class="btn extra">x²</button>
+      <button class="btn extra">x³</button>
+      <button class="btn" id="multiply">x</button>
+      <button class="btn extra">e^x</button>
+      <button class="btn extra">π</button>
+
+      <button class="btn extra">sin</button>
+      <button class="btn" id="minus">-</button>
+      <button class="btn extra">cos</button>
+      <button class="btn extra">tan</button>
+      <button class="btn extra">Inv</button>
+      <button class="btn" id="add">+</button>
+      <button class="btn" id="zero">0</button>
+      <button class="btn" id="decimal">.</button>
+      <button class="btn" id="equals">=</button>
+    </div>
+  </div>
 
 
 
-    
-    <script src="script.js"></script>
+
+  <script src="script.js"></script>
 </body>
+
 </html>
