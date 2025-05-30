@@ -73,7 +73,9 @@ buttons.forEach((button) => {
 });
 
 function history(){
-document.querySelector(".history").classList.toggle("inactive");
+    console.log("history");
+    
+document.querySelectorAll(".history").classList.toggle("inactive");
 }
 
 function expand(){
@@ -94,6 +96,7 @@ dropdown.addEventListener("change",(e)=>{
     if(e.target.value=="1"){
         history();
     }
+
     else if(e.target.value=="2"){
         expand();
     }
