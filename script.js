@@ -5,6 +5,8 @@ const buttons = document.querySelectorAll(".btn");
 const output = document.querySelector(".output"); 
 let arr=[];
 let i=0;
+if(window.innerWidth > 450){
+    document.querySelector(".mobile-functions").classList.add("inactive");}
 
 document.querySelector("#equals").addEventListener("click", () => {
     arr.push(string+"="+eval(string));
@@ -103,3 +105,55 @@ dropdown.addEventListener("change",(e)=>{
     
 })
 
+// For Swipe for mobile phones
+
+
+
+ const first=document.querySelector('.functions');
+
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let touchEndX = 0;
+        let touchEndY = 0;
+
+        first.addEventListener('touchstart',(e)=>{
+        if(e.touches.length>1) return; // Ignore multi-touch
+          touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+
+        })       
+        first.addEventListener('touchend',(e)=>{
+            if(e.touches.length>1) return;
+            touchEndX=e.changedTouches[0].clientX;
+            touchEndY=e.changedTouches[0].clientY;
+
+
+            const delX= touchEndX - touchStartX;
+            const delY= touchEndY - touchStartY;
+            if(Math.abs(delX) > Math.abs(delY)){
+
+                if(delX > 0){
+                    document.querySelector(".functions").classList.toggle("inactive");
+                    document.querySelector(".mobile-functions").classList.toggle("inactive");
+
+    
+
+
+                   
+                } else {
+
+                    console.log("Swipe left");
+                    
+                }
+            } else {
+
+                if(delY > 0){
+                    console.log("Swipe down");
+                    
+                   
+                } else {
+                    console.log("Swipe up");
+                    
+                }
+            }
+        })
